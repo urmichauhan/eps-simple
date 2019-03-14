@@ -1,21 +1,640 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- header menu -->
+      <section>
+        <header>
+          <nav class="nav">
+            <a class="nav-link"
+              >Download Catalog <i class="fa fa-angle-right"></i
+            ></a>
+            <a class="nav-link">Customer Support</a>
+            <a class="nav-link">|</a>
+            <a class="nav-link">Track Order</a>
+          </nav>
+          <nav class="nav justify-content-end" style="margin-left: 40vw;">
+            <a class="nav-link">Register</a>
+            <a class="nav-link">|</a>
+            <a class="nav-link">Login</a>
+            <a class="nav-link"><i class="fas fa-shopping-cart"></i></a>
+          </nav>
+        </header>
+        <ul class="nav justify-content-center cen">
+          <li>
+            <a class="navbar-brand" >
+              <img
+                src="data:image/png;base64,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"
+                width="180"
+                height="60"
+                alt=""
+              />
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  href="#">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">PRODUCTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">THE EXCEL FACTOR</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">COMPANY</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">CONTACT</a>
+          </li>
+          <li>
+            <div class="input-group">
+              <input
+                class="form-control py-2 border-right-0 border"
+                type="search"
+                id="example-search-input"
+              />
+              <span class="input-group-append">
+                <div class="input-group-text bg-transparent">
+                  <i class="fa fa-search"></i>
+                </div>
+              </span>
+            </div>
+          </li>
+        </ul>
 
-<router-outlet></router-outlet>
+
+      </section>
+      <!-- main page -->
+      <section>
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <ol class="carousel-indicators">
+            <li
+              data-target="#carouselExampleIndicators"
+              data-slide-to="0"
+              class="active"
+            ></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="d-block w-100" style="height: 96vh;"
+                src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/4.jpg"
+                alt="First slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100" style="height: 96vh;"
+                src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/1.jpg"
+                alt="Second slide"
+              />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </section>
+      <!-- some features -->
+      <section>
+        <div class="card-group">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">EXCLUSIVE IMPORTER OF RENOWNED BRANDS</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Buy high quality and affordable PT,OT and Sports Medicine
+                  products.
+                </li>
+                <li class="list-group-item">Hassle free ordering process.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">BUSINESS PRICING & BULK DISCOUNTS</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Business-only pricing for healthcare professionals, clinics
+                  and dealers.
+                </li>
+                <li class="list-group-item">Quantity Discounts.</li>
+                <li class="list-group-item">
+                  Get GST invoice and calm input tex credit on your business
+                  purchase.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">FAST, EASY SHIPPING</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  To ensure timely delivery, we have our own courier team and
+                  FedEx as our delivery partner.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">PAY THE WAY YOU WANT</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">CreditCard/Debit Card/PayTm</li>
+                <li class="list-group-item">Net Banking</li>
+                <li class="list-group-item">
+                  COD available for most pin codes
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- products images -->
+      <section>
+        <div class="jumbotron">
+          <h1 class="display-4">Exclusive Products</h1>
+          <p class="lead" style="font-style: italic;">
+            Flexible wholesale deals that fit every budget
+          </p>
+        </div>
+        <br />
+        <div class="card-deck">
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(149, 208, 226)"
+          >
+            <h5 class="card-title">Physio Tapes</h5>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbpWA4I5rxL_7ML7Q1LbAmQnUXq2p0NBhEkLLyF3ADdaOUf-HhEg"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(230, 195, 200)"
+          >
+            <h5 class="card-title">Exercise Bands</h5>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrlCORz52O4YenF0AcLOLnBN-6phF2-qt9DHgviSIKGHW2oY5-Xg"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(146, 202, 184)"
+          >
+            <h5 class="card-title">Hand Exercise</h5>
+            <img
+              src="http://excelphysiciansupplies.com/wp-content/uploads/2016/08/Soft_White-Bkg.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="card-deck">
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(230, 195, 200)"
+          >
+            <h5 class="card-title">Hot & Cold packs</h5>
+            <img
+              src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/h4.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(146, 202, 184)"
+          >
+            <h5 class="card-title">Gym Ball</h5>
+            <img
+              src="http://excelphysiciansupplies.com/wp-content/uploads/2016/03/IMG_5775-orange1.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(149, 208, 226)"
+          >
+            <h5 class="card-title">Balance Cushion</h5>
+            <img
+              src="http://excelphysiciansupplies.com/wp-content/uploads/2016/08/Blue.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="card-deck">
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(146, 202, 184)"
+          >
+            <h5 class="card-title">Orthopaedics</h5>
+            <img
+              src="http://excelphysiciansupplies.com/wp-content/uploads/2015/06/IMG_5562.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(149, 208, 226)"
+          >
+            <h5 class="card-title">Exercise Mat</h5>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbuA6VPa3srAzXYqsK2JDqlwuWcYFehiNyLI2OyYXUFzn228MN"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(230, 195, 200)"
+          >
+            <h5 class="card-title">Foam Rollars</h5>
+            <img
+              src="http://excelphysiciansupplies.com/wp-content/uploads/2016/08/Soft_White-Bkg.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+        </div>
+
+        <div class="card-deck">
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(149, 208, 226)"
+          >
+            <h5 class="card-title">Massage Therapy</h5>
+            <img
+              src="data:image/jpeg;base64,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"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div
+            class="card"
+            style="width: 20vw;background-color:rgb(230, 195, 200)"
+          >
+            <h5 class="card-title">Occupational Therapy</h5>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfbz5sSZqkLTjMP1qnyIfW6rDA6fTfq2JzYbSe7YmpzmEnynGaqA"
+              class="card-img-top"
+              alt="..."
+            />
+          </div>
+          <div class="card" style="width: 20vw;">
+            <h5 class="card-title"></h5>
+            <a
+              style="justify-content: center;text-align: center;margin-top:20vh;color:blue;cursor:pointer;"
+            >
+              <i class="fas fa-plus" style="font-size: 60px;color: orange"></i
+              ><br />VIEW ALL
+            </a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <img
+          src="../assets/eps_home_page[403].png"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+        <br />
+        <div class="cap">
+          <p class="lead">
+            Our intergated networks and exclusive partnerships gives us an edge
+            in supplying medical euipment to a range of institution sizes from
+            multi-speciality hospitals in stand alone clins and gyms.
+          </p>
+          <br />
+          <div class="w-75">
+            <span class="b">Join Our Mailing List</span>
+            <input
+              type="email"
+              class="form-control em"
+              placeholder="Email ID"
+            />
+            <button type="button" class="btn btn-primary">
+              SUBSCRIBE <i class="fa fa-caret-right" style="color:orange"></i>
+            </button>
+          </div>
+        </div>
+        <br />
+        <div class="jumbotron">
+          <h1 class="display-4">Our Valued Customers</h1>
+
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="0"
+                class="active"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="1"
+              ></li>
+              <li
+                data-target="#carouselExampleIndicators"
+                data-slide-to="2"
+              ></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  class="d-block w-100"
+                  src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/cli-2.jpg"
+                  alt="First slide"
+                />
+                <img
+                  class="d-block w-100"
+                  src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/cli-8.jpg"
+                  alt="Second slide"
+                />
+                <img
+                  class="d-block w-100"
+                  src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/cli-4.jpg"
+                  alt="First slide"
+                />
+                <img
+                  class="d-block w-100"
+                  src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/portea.png"
+                  alt="Second slide"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  class="d-block w-100"
+                  src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/cli-9.jpg"
+                  alt="First slide"
+                />
+                <img
+                  class="d-block w-100"
+                  src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/cli-6.jpg"
+                  alt="Second slide"
+                />
+                <img
+                  class="d-block w-100"
+                  src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/cli-3.jpg"
+                  alt="First slide"
+                />
+                <img
+                  class="d-block w-100"
+                  src="http://excelphysiciansupplies.com/wp-content/uploads/2015/05/cli-1.jpg"
+                  alt="Second slide"
+                />
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div
+          class="jumbotron"
+          style="background:url('data:image/png;base64,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');
+          background-size: cover;background-repeat: no-repeat;height: 100vh;"
+        >
+          <h1 class="display-4" style="margin-left:40vw;">
+            We Deliver Value,<br />Nationally
+          </h1>
+          <p class="lead" style="margin-left:40vw;">
+            From Delhi to Mumbai and From Kolkata to chennai<br />
+            Whenever you are in India. We'll get it there promptly!
+          </p>
+          <a
+            class="btn btn-primary btn-lg"
+            style="background-color: white;color:blue;margin-left:40vw;"
+            href="#"
+            role="button"
+            >Check out our free shipping policy
+            <i class="fa fa-caret-right" style="color:orange"></i
+          ></a>
+        </div>
+      </section>
+      <section>
+        <br />
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container">
+            <h1 class="display-4" style="color:orange">Ask a Question</h1>
+            <p class="lead">
+              and our relationship officers will conatct you within 24 hours
+            </p>
+            <br />
+
+            <span class="fom">
+              <input
+                class=" "
+                style="width:20vw"
+                type="text"
+                placeholder="name"
+              />
+              <input
+                class="form-control"
+                style="width:20vw"
+                type="number"
+                placeholder="Phone"
+              /> </span
+            ><br />
+            <input
+              class="form-control "
+              type="email"
+              placeholder="Email"
+            /><br />
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Business Name"
+            /><br />
+            <textarea
+              class="form-control"
+              type="text"
+              placeholder="Question"
+            ></textarea>
+            <br />
+            <a
+              class="btn btn-primary btn-lg"
+              style="color: white;background-color:orange;border-radius: 10px;width: 10vw"
+              href="#"
+              role="button"
+              >Submit <i class="fa fa-caret-right" style="color:white"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="jumbotron">
+          <h1 class="display-4">Excel With Us</h1>
+        </div>
+        <div class="card-group">
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="../assets/d1.png"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">INCREASE YOUR MARGINS</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  Be puchasing directly from an importer, you are able to lower
+                  you buying cost and increase your margins.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="../assets/d2.png"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">BUY SCERTIFIED PRODUCTS</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  The brands we bring to you are exclusively distributed in
+                  india by Excel Physician Supplies.These are renowned
+                  international brands that are recognized for high quality.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="../assets/d3.png"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">GET PROPMPT CERVICE</h5>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  We designate each client with a dedicated business
+                  relationship officer.This allows you to have a single point
+                  contact that you can interact with and understand all your
+                  business requirements.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div
+          class="jumbotron"
+          style="background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe8SyGmj5SnRQlCr9SAFyPvL_WNl23alY0znT5LWkZ84u4O3FOjw');background-repeat: no-repeat;background-size:cover; "
+        >
+          <h1 class="display-5" style="text-align: left">
+            Special Business pricing for
+          </h1>
+          <h1 class="display-4" style="text-align: left">
+            Health Care Professionals
+          </h1>
+          <button style="color:white;background-color: blue;text-align:left;height:8vh;border-radius:20px">
+            CREATE NEW ACCOUNT  <i class="fa fa-caret-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <footer>
+          <nav class="nav">
+              <a class="nav-link">ExcelPhysicianSupplies</a>
+              <a class="nav-link">Blogs</a>
+              <a class="nav-link">Privacy Policy</a>
+              <a class="nav-link">Cookie Policy</a>
+              <a class="nav-link">Terms of use</a>
+              <a class="nav-link">FAQs</a>
+            </nav>
+            <nav class="nav justify-content-end" style="margin-left: 20vw;font-size: 1rem">
+              <a class="nav-link"><i class="fa fa-facebook"></i></a>
+              <a class="nav-link"><i class="fa fa-twitter"></i></a>
+              <a class="nav-link"><i class="fa fa-linkedin"></i></a>
+              <a class="nav-link"><i class="fa fa-youtube"></i></a>
+            </nav>
+      </footer>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+</html>

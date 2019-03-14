@@ -1,0 +1,381 @@
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+
+* {
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  overflow: hidden;
+  background-color: transparent;
+}
+.container-fluid {
+  background-color: rgb(245, 245, 229);
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+}
+header {
+  display: flex;
+  overflow: auto;
+  background-color: orange;
+  width: 100vw;
+  color: aliceblue;
+  font-size: 1rem;
+  font-family: Georgia "Times New Roman";
+}
+.nav-link {
+  background-color: transparent;
+  cursor: pointer;
+}
+.nav-link:hover {
+  background-color: blue;
+}
+.navbar {
+  background-color: rgb(255, 253, 255);
+}
+.navbar-nav {
+  display: inline;
+}
+.cen {
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
+.cen .nav-item .nav-link {
+  color: rgb(7, 7, 7);
+  font-weight: 700;
+  font-family: "Segoe UI", sans-serif;
+}
+.cen .nav-item .nav-link :hover {
+  background-color: rgb(7, 7, 7);
+  color: white;
+}
+.form-control {
+  border-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.d-block {
+  height: 70vh;
+}
+.card {
+  padding: 20px;
+  border-color: transparent;
+  border-width: unset;
+  border-right-color: rgb(226, 216, 216);
+  border-right-width: 1px;
+  font-family: "Gill Sans", Calibri;
+}
+.card-group {
+  padding: 50px;
+  background-color: white;
+}
+.card-title {
+  text-align: center;
+  color: blue;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+.card-group :nth-child(4) {
+  border-right-color: transparent;
+}
+.list-group {
+  border-color: transparent;
+  font-size: 1rem;
+  list-style-type: circle;
+  list-style-position: outside;
+}
+.list-group-item {
+  border-color: transparent;
+}
+section {
+  background-color: white;
+}
+.jumbotron {
+  background-color: white;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+.card-deck .card-title {
+  font-size: 1.6rem;
+  color: rgb(15, 15, 15);
+  font-weight: 100;
+}
+.card-deck {
+  padding: 100px;
+  padding-top: 0px;
+  margin-top: 0px;
+  background-color: white;
+  border-color: transparent;
+}
+.card-deck .card {
+  border-color: transparent;
+}
+.cap {
+  padding: 5vw;
+  text-align: center;
+}
+.w-75 {
+  background-color: rgb(43, 43, 230);
+  justify-self: center;
+  margin-left: 10vw;
+  height: 8vh;
+  display: flex;
+  flex-direction: row;
+}
+.b {
+  border-bottom: 50px solid rgb(9, 9, 145);
+  border-right: 25px solid transparent;
+  height: 0;
+  width: 30vw;
+  font-weight: 700;
+  font-family: "Lucida Sans Regular", sans-serif;
+  text-align: center;
+  color: antiquewhite;
+}
+.em {
+  border-color: transparent;
+  border-bottom-color: aliceblue;
+  width: 20vw;
+  background-color: transparent;
+  margin-left: 6vw;
+}
+.btn-primary {
+  border-radius: 30px;
+  background-color: transparent;
+  border-color: aliceblue;
+  height: 5vh;
+  align-self: center;
+  text-align: center;
+  font-size: 0.9rem;
+  color: aliceblue;
+}
+.btn-primary :hover {
+  color: blue;
+  background-color: aliceblue;
+}
+.w-100 {
+  width: 20vw;
+  height: 80px;
+}
+.carousel-item {
+  display: flex;
+  flex-direction: row;
+}
+.fom {
+  display: flex;
+  flex-direction: row;
+}
+.fom input {
+}
+.jumbotron-fluid {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu9nmGEM-rzzw7ymzbbOIHVHdyBhaGNvuF1KS_fkUFZ3PO9ag8");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+.jumbotron-fluid input,
+.jumbotron-fluid textarea {
+  width: 50vw;
+  margin-left: 10vw;
+}
+footer {
+  display: flex;
+  overflow: auto;
+  background-color: blue;
+  width: 100vw;
+  height: 15vh;
+  padding-top: 30px;
+  color: aliceblue;
+  font-size: 0.9rem;
+  font-family: Georgia "Times New Roman";
+}
+
+@media screen and (min-width: 600px) and (max-width: 790px) {
+  .cen .nav-item .nav-link {
+    font-weight: 500;
+  }
+  .card-title {
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  .list-group {
+    font-size: 0.9rem;
+  }
+  .jumbotron {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+  .card-deck .card-title {
+    font-size: 1.2rem;
+    font-weight: 100;
+  }
+  .btn-primary {
+    font-size: 0.9rem;
+  }
+  footer {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (min-width: 555px) and (max-width: 599px) {
+  .cen .nav-item .nav-link {
+    font-weight: 400;
+  }
+  .card-title {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .list-group {
+    font-size: 0.8rem;
+  }
+  .jumbotron {
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+  .card-deck .card-title {
+    font-size: 1rem;
+    font-weight: 100;
+  }
+  .btn-primary {
+    font-size: 0.8rem;
+  }
+  footer {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (min-width: 550px) and (max-width: 554px) {
+  .cen .nav-item .nav-link {
+    font-weight: 400;
+  }
+  .form-control,
+  button {
+    font-size: 0.9rem;
+  }
+  .card-title {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .list-group {
+    font-size: 0.8rem;
+  }
+  .display-4 {
+    font-size: 2rem;
+    margin-left: 10vw;
+  }
+  .lead {
+    font-size: 0.8rem;
+    margin-left: 10vw;
+  }
+  .jumbotron {
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+  .card-deck .card-title {
+    font-size: 1rem;
+    font-weight: 100;
+  }
+  .btn-primary {
+    font-size: 0.8rem;
+  }
+  footer {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 550px) {
+  .cen .nav-item .nav-link {
+    font-weight: 300;
+  }
+  .nav-link {
+    font-size: 0.7rem;
+  }
+  .form-control,
+  button {
+    font-size: 0.7rem;
+  }
+  .card-title {
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+  .list-group {
+    font-size: 0.6rem;
+  }
+  .display-4 {
+    font-size: 1rem;
+    margin-left: 10vw;
+  }
+  .lead {
+    font-size: 0.7rem;
+    margin-left: 10vw;
+  }
+  .jumbotron {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .card-deck .card-title {
+    font-size: 1rem;
+    font-weight: 100;
+  }
+  .btn-primary {
+    font-size: 0.8rem;
+  }
+  footer {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (min-width: 200px) and (max-width: 399px) {
+  .cen .nav-item .nav-link {
+    font-weight: 300;
+    font-size: 0.5rem;
+  }
+  .nav-link {
+    font-size: 0.5rem;
+  }
+  .form-control,
+  button {
+    font-size: 0.7rem;
+  }
+  .card-title,
+  .card {
+    font-weight: 400;
+    font-size: 0.8rem;
+  }
+  .list-group {
+    font-size: 0.6rem;
+  }
+  .display-4 {
+    font-size: 1rem;
+    margin-left: 10vw;
+  }
+  .lead {
+    font-size: 0.7rem;
+    margin-left: 10vw;
+  }
+  .jumbotron {
+    font-weight: 400;
+    font-size: 1rem;
+  }
+  .card-deck .card-title {
+    font-size: 0.7rem;
+    font-weight: 100;
+  }
+  .btn-primary {
+    font-size: 0.8rem;
+  }
+  footer {
+    font-size: 0.7rem;
+  }
+  .d {
+    font-size: 0.7rem;
+  }
+}
+
+.d {
+  font-size: 1rem;
+  color: black;
+}
