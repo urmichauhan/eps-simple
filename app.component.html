@@ -1,0 +1,74 @@
+
+<ng-template #alertAboutOffline></ng-template>
+<div  *ngIf="isShowUpdateMessage==true"  class="go_to_play_container">
+	<div class="logo_container">
+		<!-- <a>
+			<img src="https://v9uat.violetlms.com/DomainFiles/V9UAT_20159/images/VioletLMS_logo.png">
+		</a> -->
+		<div class="m-login__logo logo_main_area">
+			<a style="display:none" class="logo_new">
+
+			</a>
+		</div>
+	</div>
+	<!-- <h1 class="go_to_play_text">Hello,</h1> -->
+	<div class="description_text">
+		<p>{{updateMessageText}}</p>
+	</div>
+	<button *ngIf="isShowUpdateButton==true" class="defalut_btn" (click)="goToStore()" id="m_login_signin_submit23">
+		<span class="sign_text">{{'GOTOSTORE' | translate}}</span>
+		<i class="la la-angle-right"></i>
+	</button>
+</div>
+<div *ngIf="isPlatformIntialize()==false">
+	<div *ngIf="isNeedToUpdate==false" class="m-page-loader m-page-loader--base m-page-loader--non-block m-page--loading-non-block"
+	 style="margin-left: -80px; margin-top: -20px;">
+		<div class="m-blockui">
+			<span>
+				{{'Please Wait' | translate}}
+			</span>
+			<span>
+				<div class="m-loader m-loader--brand"></div>
+			</span>
+		</div>
+	</div>
+
+</div>
+<!-- <div *ngIf="isShowUpdateButton==true" class="row m-login__form-sub custom_btn_alignment">
+	<div class="m-login__form-action ">
+		<button  (click)="goToStore()" 
+		 id="m_login_signin_submit23" class="defalut_btn">
+			<span class="sign_text">Go To Store</span>
+			<i class="la la-angle-right"></i>
+		</button>
+	</div>
+</div> -->
+<div *ngIf="isPlatformIntialize() && isNeedToUpdate==false" multilingual="" class="{{platform}}">
+	<ng-template #modalComponent></ng-template>
+	<ng-template #modalComponents></ng-template>
+	<!-- begin::Page loader -->
+	<div class="m-page-loader m-page-loader--base m-page-loader--non-block" style="margin-left: -80px; margin-top: -20px;">
+		<div class="m-blockui">
+			<span id="plzWait">
+				{{'Please Wait' | translate}}
+			</span>
+			<span>
+				<div class="m-loader m-loader--brand"></div>
+			</span>
+		</div>
+	</div>
+	<!-- end::Page loader -->
+	<!-- begin:: Page -->
+	<router-outlet></router-outlet>
+	<!-- end:: Page -->
+	<app-quick-sidebar></app-quick-sidebar>
+	<app-scroll-top></app-scroll-top>
+	<app-tooltips></app-tooltips>
+	<!--begin::Base Scripts -->
+	<!--end::Base Scripts -->
+	<!--begin::Page Vendors -->
+	<!--end::Page Vendors -->
+	<!--begin::Page Snippets -->
+	<!--end::Page Snippets -->
+</div>
+

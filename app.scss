@@ -1,0 +1,386 @@
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+.main_area_fullwidth{
+  width:940px;
+  float:left;
+  position:absolute;
+  left:0;
+  right:0;
+  margin:0 auto;
+}
+#ManagerView .scroll-content {
+  overflow-y: auto;
+  margin-top: 56px !important;
+}
+#loggedInMenu .scroll-content {
+  overflow-y: auto;
+  margin-top: 56px !important;
+}
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.1.
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    767px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+
+// Creates text alignment classes based on screen size
+// TODO this would be nice to add to the framework
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    // Provide text `[text-{bp}]` attributes for aligning text based on screen size
+    [text#{$infix}-center] {
+      text-align: center;
+    }
+
+    [text#{$infix}-left] {
+      text-align: left;
+    }
+
+    [text#{$infix}-right] {
+      text-align: right;
+    }
+
+    [hidden#{$infix}-up] {
+      display: none;
+    }
+  }
+
+  @include media-breakpoint-down($breakpoint, $grid-breakpoints) {
+    [hidden#{$infix}-down] {
+      display: none;
+    }
+  }
+}
+.ion-md-home_icon{
+  background: url(../assets/img/menu_home.svg) no-repeat;
+  width: 30px;
+  height: 25px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-md-user_icon{
+  background: url(../assets/img/menu_user.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-md-manager_icon{
+  background: url(../assets/img/menu_manager_view.svg) no-repeat;
+  width: 30px;
+  // height: 30px;
+  height: 33px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-md-history_icon{
+  background: url(../assets/img/menu_history.svg) no-repeat;
+  width: 30px;
+  // height: 30px;
+  height: 26px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-md-whislist_icon{
+  background: url(../assets/img/menu_whislist.svg) no-repeat;
+  // width: 30px;
+  min-width: 23px !important;
+  height: 30px;
+  float: left;
+  background-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-md-profile_icon{
+  background: url(../assets/img/menu_myprofile.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-md-support_icon{
+  background: url(../assets/img/menu_support.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-md-help_icon{
+  background: url(../assets/img/menu_help.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-md-logout_icon{
+  background: url(../assets/img/menu_logo_out_new.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.header_menu .toolbar-background-md{
+  background: #fff !important;
+}
+.menu_logo{
+  // padding: 8px 0px 8px 0;
+  //   width: 60%;
+  //   max-width: 65%;
+  padding: 0;
+  width: 60%;
+  max-width: 65%;
+  margin: 4px 0 0 0;
+}
+
+.session{
+float: left;
+width: 30%;
+border-width: 1px !important;
+border-style: solid !important;
+border-color: #488aff !important;
+color: #488aff !important;
+background-color: transparent !important;
+-webkit-box-shadow: none !important;
+box-shadow: none !important;
+border-radius: 25px !important;
+padding: 4% 7% !important;
+}
+
+.session_stay {
+  border-radius: 2px !important;
+  overflow: hidden !important;
+  font-weight: normal !important;
+  text-transform: uppercase !important;
+  color: #fff !important;
+  background-color: #488aff !important;
+  margin: 0 8px 0 0 !important;
+  padding: 4% 7% !important;
+  border-radius: 25px !important;
+  text-align: center !important;
+  //max-width: 60%;
+}
+.focus-outline button:focus, .focus-outline [ion-button]:focus{
+  outline:2px solid #fff !important;
+}
+
+.toolbar-md{
+  padding:4px 4px 0 !important;
+}
+
+/*-------for IOS-----------*/
+.ion-ios-home_icon{
+  background: url(../assets/img/menu_home.svg) no-repeat;
+  width: 30px;
+  height: 25px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-ios-user_icon{
+  background: url(../assets/img/menu_user.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-ios-manager_icon{
+  background: url(../assets/img/menu_manager_view.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-ios-history_icon{
+  background: url(../assets/img/menu_history.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-ios-whislist_icon{
+  background: url(../assets/img/menu_whislist.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  background-position: center;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-ios-profile_icon{
+  background: url(../assets/img/menu_myprofile.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-ios-support_icon{
+  background: url(../assets/img/menu_support.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-ios-help_icon{
+  background: url(../assets/img/menu_help.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+.ion-ios-logout_icon{
+  // background: url(../assets/img/menu_logo_out.svg) no-repeat;
+  background: url(../assets/img/menu_logo_out_new.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  float: left;
+  image-rendering: -webkit-optimize-contrast;
+  background-size: 100% 100%;
+}
+// added by vikas for menu icon border-bottom 26-01-2017
+#loggedInMenu ion-label.label.label-ios {
+  border-bottom: 1px solid #e6e6e6;
+}
+#loggedInMenu .list-ios{
+  margin: 5px 0 32px;
+}
+
+#loggedInMenu .item-md:last-child{
+  border-bottom: 1px solid  #e6e6e6;
+}
+#ManagerView .item-md:last-child{
+  border-bottom: 1px solid  #e6e6e6;
+}
+#loggedOutPages .item-md:last-child{
+  border-bottom: 1px solid  #e6e6e6;
+}
+#loggedInMenu .item-ios:last-child{
+  border-bottom: 1px solid  #e6e6e6;
+}
+#ManagerView .item-ios:last-child{
+  border-bottom: 1px solid  #e6e6e6;
+}
+#loggedOutPages .item-ios:last-child{
+  border-bottom: 1px solid  #e6e6e6;
+}
+
+.ion-md-walkthrough_icon{
+  background: url(../assets/img/walkthrough_icon.svg) no-repeat;
+  // width: 30px;
+  // height: 26px;
+  width: 35px;
+  height: 26px;
+  float: left;
+  background-size:100% 100%;
+}
+
+.ion-ios-walkthrough_icon{
+  background: url(../assets/img/walkthrough_icon.svg) no-repeat;
+  width: 30px;
+  height: 26px;
+  float: left;
+  background-size: 100% 100%;
+}
+
+.ios .close{
+font-size: 27px;  
+}
+
+.ios #ManagerView .list-ios .item-block .item-inner{
+border-bottom: 0.55px solid #c8c7cc !important;   
+}
+
+.ios #loggedInMenu .list-ios button:last-child ion-label.label.label-ios{
+border-bottom:none !important;  
+}
+.menu_text{
+  text-align: left;
+}
+@media (max-width:400px){
+.ios .close_popup_btn{
+margin-right:auto;
+right: 10px;
+position: relative;
+top: 5px;
+float: right;
+}
+}
+
+.alert-ios .alert-button-group{
+width:80%;
+margin: 0 auto;  
+}
+
+.ios .ng-star-inserted{
+-webkit-overflow-scrolling: touch; 
+}
+
+@media(min-width:400px){
+ion-app.ios{
+font-size:15px;
+}
+}
+
+.ios .inner_department_text{
+font-size: 12px;
+white-space: normal;  
+}
+
+.ios .inner_department_position{
+ font-size: 13px;
+white-space: normal 
+}
+
+.ios page-wishlist ion-item-divider,.ios page-desired-wishlist ion-item-divider{
+padding:10px;  
+}
+
+.active {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
